@@ -4,6 +4,8 @@ project(mp_os LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+# set(VCPKG_TARGET_TRIPLET x64-windows)
+# set(CMAKE_TOOLCHAIN_FILE D:/Download/vcpkg-2025.04.09/vcpkg-2025.04.09/scripts/buildsystems/vcpkg.cmake)
 
 message([[VCPKG toolchain setup example. It is needed for some libraries. Highly recommended to pass it by command line arguments for cmake configuration (IDE can help with this).
         set(VCPKG_TARGET_TRIPLET x64-windows)
@@ -22,7 +24,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(nlohmann_json)
 
-find_package(Boost COMPONENTS system container REQUIRED) # Ставить через vcpkg
+FetchContent_Declare(httplib SYSTEM
+        GIT_REPOSITORY https://github.com/yhirose/cpp-httplib
+        GIT_TAG a609330e4c6374f741d3b369269f7848255e1954 # v0.14.1
+        GIT_SHALLOW TRUE)
+FetchContent_MakeAvailable(httplib)
+
+#find_package(Boost COMPONENTS system container REQUIRED) # Ставить через vcpkg
 
 add_subdirectory(allocator)
 add_subdirectory(arithmetic)
