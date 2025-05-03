@@ -1,7 +1,7 @@
 #ifndef MATH_PRACTICE_AND_OPERATING_SYSTEMS_SERVER_LOGGER_H
 #define MATH_PRACTICE_AND_OPERATING_SYSTEMS_SERVER_LOGGER_H
 
-#include "C:\Users\TheUt\.vcpkg-clion\vcpkg\packages\cpp-httplib_x64-mingw-dynamic\include\httplib.h"
+#include <httplib.h>
 #include <logger.h>
 #include <unordered_map>
 
